@@ -1,0 +1,18 @@
+# 本地 HTTPS 证书（含私钥，切勿提交）
+cert/
+
+# 临时/缓存
+.npm-cache/
+.npm/
+*.tgz
+.officejs/
+
+# 本地诊断垃圾文件
+docs/截图/shot-top.png
+
+# 本地测试数据（含个人文档草稿，不随仓库分发）
+test/
+
+# 系统文件
+Thumbs.db
+.DS_Store

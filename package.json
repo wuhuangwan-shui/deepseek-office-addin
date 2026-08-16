@@ -1,0 +1,16 @@
+{
+  "name": "deepseek-office-addin",
+  "version": "1.0.0",
+  "description": "DeepSeek AI 助手：内嵌 Word / Excel 的 Office 加载项（本地服务 + 任务窗格）",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "icons": "node tools/make-icons.js"
+  },
+  "author": "wuhuangwan-shui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wuhuangwan-shui/deepseek-office-addin.git"
+  },
+  "license": "MIT"
+}

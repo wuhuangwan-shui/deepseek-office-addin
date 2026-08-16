@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>DeepSeek 办公助手</title>
+  <link rel="stylesheet" href="taskpane.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand"><span class="mark" aria-hidden="true">D</span> DeepSeek 办公助手 <span id="hostBadge" class="badge"></span></div>
+      <button id="btnSettings" class="icon-btn" title="设置" aria-label="设置"><span class="glyph">&#xE713;</span></button>
+    </header>
+
+    <section id="settingsPanel" class="panel hidden">
+      <div class="field">
+        <label for="apiKey">DeepSeek API Key</label>
+        <input type="password" id="apiKey" placeholder="sk-..." autocomplete="off" />
+        <div id="serverKeyHint" class="hint hidden">已检测到服务器配置的 DEEPSEEK_API_KEY，留空即可</div>
+        <div class="hint">Key 只保存在本机任务窗格，经本地服务直连 DeepSeek 官方 API。</div>
+      </div>
+      <div class="field">
+        <label for="model">模型</label>
+        <select id="model">
+          <option value="deepseek-v4-flash">deepseek-v4-flash（快，适合日常办公）</option>
+          <option value="deepseek-v4-pro">deepseek-v4-pro（慢，适合复杂推理）</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="temperature">温度（0 严谨 ~ 1.5 发散）</label>
+        <input type="range" id="temperature" min="0" max="1.5" step="0.1" value="0.7" />
+        <span id="tempVal">0.7</span>
+      </div>
+      <button id="btnSaveSettings" class="primary">保存设置</button>
+    </section>
+
+    <section id="actions" class="actions"></section>
+
+    <section id="chat" class="chat"></section>
+
+    <footer class="composer">
+      <textarea id="prompt" rows="3" placeholder="输入你的要求，回车发送（Shift+回车换行）…"></textarea>
+      <button id="btnSend" class="primary"><span class="glyph">&#xE724;</span>发送</button>
+    </footer>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script src="taskpane.js"></script>
+</body>
+</html>

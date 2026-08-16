@@ -1,0 +1,148 @@
+/* DeepSeek 办公助手 - Office Fluent 风格
+   设计基准：Office 原生面板 —— 白底/浅灰面、Office 蓝 #0F6CBD、2-4px 圆角、
+   Segoe MDL2 Assets 线性图标、无渐变无发光阴影。 */
+:root {
+  --accent: #0f6cbd;        /* Office 蓝 */
+  --accent-hover: #0b5faa;
+  --accent-tint: #eff6fc;   /* 浅蓝底 */
+  --accent-active: #deebf7;
+  --bg: #faf9f8;            /* Office 画布浅灰 */
+  --card: #ffffff;
+  --border: #edebe9;        /* 发丝线 */
+  --border-input: #8a8886;  /* 输入控件边框 */
+  --text: #323130;
+  --muted: #605e5c;
+  --disabled: #a19f9d;
+  --user-bg: #f3f2f1;       /* 中性灰块 */
+  --scroll: #c8c6c4;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+  background: var(--bg); color: var(--text); font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+#app { display: flex; flex-direction: column; height: 100vh; }
+::selection { background: #c7e0f4; }
+
+/* Segoe MDL2 Assets：Windows/Office 自带图标字体（线性、原生风格） */
+.glyph { font-family: "Segoe MDL2 Assets", "Segoe UI", sans-serif; line-height: 1; }
+
+/* ---------- 顶栏 ---------- */
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  height: 44px; padding: 0 12px;
+  background: var(--card); border-bottom: 1px solid var(--border);
+}
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; color: var(--text); }
+.mark {
+  width: 18px; height: 18px; border-radius: 3px; flex: 0 0 auto;
+  background: var(--accent); color: #fff;
+  font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.badge {
+  background: var(--user-bg); border-radius: 2px; padding: 1px 6px;
+  font-size: 11px; font-weight: 400; color: var(--muted);
+}
+.icon-btn {
+  background: transparent; border: 0; color: var(--muted);
+  width: 32px; height: 32px; border-radius: 2px; font-size: 15px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.icon-btn:hover { background: var(--user-bg); color: var(--text); }
+
+/* ---------- 设置面板 ---------- */
+.panel { background: var(--card); border-bottom: 1px solid var(--border); padding: 12px; }
+.hidden { display: none; }
+.field { margin-bottom: 10px; }
+.field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.field input[type=password], .field select {
+  width: 100%; padding: 5px 8px; border: 1px solid var(--border-input);
+  border-radius: 2px; font-size: 13px; font-family: inherit;
+  background: #fff; color: var(--text);
+}
+.field input[type=password]:focus, .field select:focus {
+  outline: none; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset;
+}
+.field input[type=range] { width: 70%; vertical-align: middle; accent-color: var(--accent); }
+#tempVal { font-size: 12px; color: var(--muted); margin-left: 6px; }
+.hint { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+
+/* ---------- 按钮 ---------- */
+.primary {
+  background: var(--accent); color: #fff; border: 0; border-radius: 2px;
+  padding: 0 14px; min-height: 32px; font-size: 13px; font-family: inherit; cursor: pointer;
+}
+.primary:hover { background: var(--accent-hover); }
+.primary:disabled { background: var(--user-bg); color: var(--disabled); cursor: not-allowed; }
+.primary .glyph { font-size: 11px; margin-right: 5px; vertical-align: 1px; }
+button.mini {
+  border: 1px solid var(--border-input); color: var(--text); background: #fff;
+  border-radius: 2px; padding: 3px 10px; min-height: 26px;
+  font-size: 12px; font-family: inherit; cursor: pointer;
+}
+button.mini:hover { background: var(--user-bg); }
+button.mini:disabled { opacity: .6; cursor: wait; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* ---------- 能力卡片 ---------- */
+.actions {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  padding: 10px 12px; border-bottom: 1px solid var(--border); background: var(--card);
+}
+.action-card {
+  display: flex; align-items: flex-start; gap: 8px; text-align: left;
+  background: #fff; border: 1px solid var(--border); border-radius: 4px;
+  padding: 8px 9px; cursor: pointer; font: inherit; color: var(--text);
+  transition: background .1s, border-color .1s;
+}
+.action-card:hover { border-color: var(--accent); background: var(--accent-tint); }
+.action-card:active { background: var(--accent-active); }
+.action-card:disabled { opacity: .6; cursor: wait; }
+.action-card .glyph { font-size: 16px; color: var(--accent); margin-top: 1px; flex: 0 0 auto; }
+.action-card .t { font-weight: 600; font-size: 13px; margin-bottom: 2px; }
+.action-card .d { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+/* ---------- 对话区 ---------- */
+.chat {
+  flex: 1; overflow-y: auto; padding: 12px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.empty { color: var(--muted); text-align: center; padding: 32px 10px; font-size: 13px; line-height: 1.9; }
+.msg { width: 100%; border-radius: 4px; padding: 8px 10px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+.msg.user { background: var(--user-bg); }
+.msg.assistant { background: transparent; }
+.msg .body { font-size: 13px; }
+.thinking {
+  margin-bottom: 8px; font-size: 12px; color: var(--muted);
+  border-left: 3px solid #c7e0f4; background: var(--accent-tint);
+  border-radius: 0 2px 2px 0; padding: 6px 8px;
+}
+.thinking summary { cursor: pointer; }
+.thinking div { color: var(--text); margin-top: 4px; max-height: 180px; overflow-y: auto; white-space: pre-wrap; }
+.msg-tools { margin-top: 8px; display: flex; gap: 6px; }
+
+/* ---------- 输入区 ---------- */
+.composer {
+  display: flex; gap: 8px; padding: 10px 12px;
+  background: var(--card); border-top: 1px solid var(--border); align-items: flex-end;
+}
+.composer textarea {
+  flex: 1; resize: none; border: 1px solid var(--border-input); border-radius: 2px;
+  padding: 6px 8px; font: inherit; font-size: 13px; background: #fff; color: var(--text);
+}
+.composer textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+
+/* ---------- 提示与滚动条 ---------- */
+#toast {
+  position: fixed; bottom: 70px; left: 50%; transform: translateX(-50%);
+  background: var(--text); color: #fff; padding: 6px 12px; border-radius: 4px;
+  font-size: 12px; z-index: 99; opacity: 0; transition: opacity .15s;
+  pointer-events: none; max-width: 90%; box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+#toast.show { opacity: 1; }
+.chat::-webkit-scrollbar { width: 8px; }
+.chat::-webkit-scrollbar-thumb { background: var(--scroll); border-radius: 4px; }
+.chat::-webkit-scrollbar-track { background: transparent; }
