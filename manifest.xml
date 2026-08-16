@@ -9,8 +9,8 @@
   <DefaultLocale>zh-CN</DefaultLocale>
   <DisplayName DefaultValue="DeepSeek 办公助手"/>
   <Description DefaultValue="用 DeepSeek AI 直接在 Word / Excel 里写作、分析数据、生成公式"/>
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
+  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png?v=2"/>
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png?v=2"/>
   <SupportUrl DefaultValue="https://www.deepseek.com/"/>
   <Hosts>
     <Host Name="Document"/>
@@ -91,9 +91,9 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png?v=2"/>
+        <bt:Image id="Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png?v=2"/>
+        <bt:Image id="Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png?v=2"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
