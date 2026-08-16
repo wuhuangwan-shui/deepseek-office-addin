@@ -24,9 +24,9 @@
 
 ## 界面预览
 
-| 任务窗格（改版后） | 论文排版入口 |
+| Word 版 | Excel 版 |
 | --- | --- |
-| ![改版后](docs/截图/界面-改版后.png) | ![论文排版](docs/截图/界面-论文排版.png) |
+| ![Word 版任务窗格](docs/截图/word版截图.png) | ![Excel 版任务窗格](docs/截图/excel版截图.png) |
 
 ## 快速开始（Windows 桌面版 Word / Excel）
 
@@ -67,7 +67,7 @@ office-addin/
 ├── assets/                插件图标（icon.svg 源文件 + 16/32/64/80 PNG，npm run icons 重新生成）
 ├── cert/                  本地 HTTPS 证书（不入库）
 ├── tools/                 开发工具（make-icons / png-crop / png-stats / fetch-gh）
-├── docs/截图/              界面截图
+├── docs/截图/              Word / Excel 运行截图
 └── test/                  离线测试套件 + 测试文件
 ```
 
